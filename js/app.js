@@ -6,9 +6,18 @@ const ciudad = document.getElementById("ciudad");
 const pais = document.getElementById("pais");
 const formulario = document.getElementById("formulario");
 const spinner = document.getElementById("spinner");
+const clima = document.getElementById("clima");
 
 window.addEventListener("load", () => {
     formulario.addEventListener("submit", enviarFormulario)
+
+    // verificar la disponobilidad del geolocation en el navegador
+
+    if ("geolocation" in navigator) {
+        clima.addEventListener("click", climaAutomatico)
+    } else {
+        throw "Clima automatico no disponible"
+    }
 })
 
 function enviarFormulario(e) {
@@ -22,8 +31,6 @@ function enviarFormulario(e) {
     }
 }
 
-if ("geolocation" in navigator) {
-
-} else {
-    console.log("no disponible")
+function climaAutomatico() {
+    obtenerClima()
 }
