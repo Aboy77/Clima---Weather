@@ -176,3 +176,9 @@ html {
         opacity: 1;
     }
 }
+
+#mapid {
+    margin: 0 auto;
+    width: 50%;
+    height: 200px;
+}

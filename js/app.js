@@ -1,6 +1,6 @@
 import { API } from "./api.js"
 import { UI } from "./UI.js"
-import { obtenerClima } from "./helpers.js"
+import { Map } from "./helpers.js"
 
 const ciudad = document.getElementById("ciudad");
 const pais = document.getElementById("pais");
@@ -32,5 +32,6 @@ function enviarFormulario(e) {
 }
 
 function climaAutomatico() {
-    obtenerClima()
+    const map = new Map()
+    map.obtenerClima()
 }
