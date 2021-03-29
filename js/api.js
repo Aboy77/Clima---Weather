@@ -2,9 +2,11 @@ import { UI } from "./UI.js"
 
 const resultado = document.getElementById("resultado");
 
+// inicia el Api de climas
+// start the climates API
 
 export class API {
-    constructor(apiKey) {
+    constructor() {
         this.apiKey = "9b52b830b50f66b7502064db667db513";
     }
     mostrarApi(ciudad, pais) {
@@ -22,6 +24,9 @@ export class API {
                 this.mostrarClima(data)
             })
     }
+
+    // se forma el HTML segun los datos obtenidos del Api
+    // The HTML is formed according to the data obtained from the Api
 
     mostrarClima(data) {
         const { name, main: { temp, temp_max, temp_min } } = data;
@@ -57,13 +62,22 @@ export class API {
     }
 }
 
+// limpia resultados anteriores
+// delete before results
+
 function limpiarHTML() {
     while (resultado.firstChild) {
         resultado.removeChild(resultado.firstChild)
     }
 }
 
+// transforma los grados kelvin a grados celcios
+// transform from kelvin grades to centigrade grade
+
 const kelvinACentigrados = (grados) => parseInt(grados - 273.15)
+
+// inicia el spinner de carga
+// start spinner load
 
 function Spinner() {
     limpiarHTML()
